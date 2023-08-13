@@ -25,7 +25,7 @@ def main():
         print(f"\nPlayer {player_idx + 1}'s turn")
 
         sleep(1)
-        should_roll = input("Would you like to roll? y/n")
+        should_roll = input("Would you like to roll? (y/n): ")
 
         # checking if player wants to roll and initializing current score
         if should_roll.lower() == 'y':
@@ -61,17 +61,36 @@ def main():
                         sleep(1)
 
                         # Ask whether player wants to quit or risk!
-                        should_quit = input("Roll Again? (y). Press (q) to quit")
+                        should_quit = input("Roll Again? (y). Press (q) to quit: ")
 
                         if should_quit.lower() == 'q':
                             rolling = False
                         
 
-        # inserting score of each player into list to compare them and declare the winner
+        # inserting score of each player into list to compare them and declare the winner!
         sleep(1)
         print(f"Your final score: {current_score}")
         scores[player_idx] = current_score
 
 
-        
+    # if no player reaches the target score, we compare their scores
+    # the player with highest score wins!
+
+    else:
+
+        if all_scores_equal(scores):
+            print("\nIt's a tie among all players. Thank You for playing")
+
+        else:
+            player_max_score = max(scores)
+            idx = scores.index(player_max_score)
+
+            # Declaring the winner
+            print(f"\nPlayer {idx + 1} won the game with a max score of {player_max_score}")
+
+
+# driver code
+if __name__ == '__main__':
+    main()
+
 
