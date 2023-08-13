@@ -30,3 +30,25 @@ def user_input():
             print("Invalid! Please try again")
 
     return number_of_players
+
+
+def roll():
+
+    min_value = 1
+    max_value = 6
+
+    value = random.randint(min_value, max_value)
+
+    return value
+
+
+def all_scores_equal(seq):
+
+    for val in range(len(seq)):
+
+        if seq[val] != seq[val - 1]:
+            return False
+        
+    return True
+
+
