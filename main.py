@@ -15,13 +15,14 @@ def main():
     sleep(1)
 
     # Game starts!
-    print("Let's begin!")
+    print("\nLet's begin!")
 
 
     # Game Loop
     for player_idx in range(no_of_players):
 
         sleep(2)
+        print("----------------------------------------------------------------------")
         print(f"\nPlayer {player_idx + 1}'s turn")
 
         sleep(1)
@@ -65,11 +66,15 @@ def main():
 
                         if should_quit.lower() == 'q':
                             rolling = False
+
+        else:
+            rolling = False
+            current_score = 0
                         
 
         # inserting score of each player into list to compare them and declare the winner
         sleep(1)
-        print(f"Your final score: {current_score}")
+        print(f"Your final points: {current_score}")
         scores[player_idx] = current_score
 
 
@@ -78,14 +83,23 @@ def main():
 
     else:
 
+        # Displaying final score for all players:
+        print("----------------------------------------------------------------------")
+        print("\nFINAL POINTS:\n")
+
+        for index in range(len(scores)):
+            print(f"Player {index + 1}: {scores[index]} points")
+
+        
+        # Displaying winner
         if all_scores_equal(scores):
-            print("\nIt's a draw among all players. Thanks for playing!")
+            print("\nIt's a tie among all players. Thanks for playing!")
 
         else:        
             player_max_score = max(scores)
             idx = scores.index(player_max_score)
 
-            print(f"\nPlayer {idx + 1} won the game with maximum score of {player_max_score}")      
+            print(f"\nPlayer {idx + 1} won the game with {player_max_score} points.")      
 
 
 # Driver Code
