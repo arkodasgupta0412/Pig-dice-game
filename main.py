@@ -62,9 +62,9 @@ def main():
                         sleep(1)
 
                         # Ask whether player wants to quit or risk!
-                        should_quit = input("Roll Again? (y). Press (q) to quit: ")
+                        should_hold = input("Roll Again? (y). Press (h) to hold: ")
 
-                        if should_quit.lower() == 'q':
+                        if should_hold.lower() == 'q':
                             rolling = False
 
         else:
