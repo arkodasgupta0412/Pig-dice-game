@@ -16,7 +16,7 @@ def user_input():
 
     while True:
 
-        number_of_players = input("Enter number of players (2-4): ")
+        number_of_players = input("\nEnter number of players (2-4): ")
 
         if number_of_players.isdigit():
             
