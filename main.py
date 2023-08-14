@@ -8,11 +8,22 @@ def main():
     rules()
 
     target_score = 50
+    names = []
     sleep(1)
 
+    # user input for number of players
     no_of_players = int(user_input())
     scores = [0 for _ in range(no_of_players)]
     sleep(1)
+
+    print("\n")
+    
+    # Accepting names of players
+    for _ in range(no_of_players):
+        name = input(f"Player {_ + 1} name: ")
+        names.append(name)
+
+
 
     # Game starts!
     print("\nLet's begin!")
@@ -23,7 +34,7 @@ def main():
 
         sleep(2)
         print("----------------------------------------------------------------------")
-        print(f"\nPlayer {player_idx + 1}'s turn")
+        print(f"\n{names[player_idx]}'s turn")
 
         sleep(1)
         should_roll = input("Would you like to roll? (y/n): ")
@@ -74,7 +85,7 @@ def main():
 
         # inserting score of each player into list to compare them and declare the winner
         sleep(1)
-        print(f"Your final points: {current_score}")
+        print(f"Your total points: {current_score}")
         scores[player_idx] = current_score
 
 
@@ -88,7 +99,7 @@ def main():
         print("\nFINAL POINTS:\n")
 
         for index in range(len(scores)):
-            print(f"Player {index + 1}: {scores[index]} points")
+            print(f"{names[index]}: {scores[index]} points")
 
         
         # Displaying winner
@@ -99,7 +110,7 @@ def main():
             player_max_score = max(scores)
             idx = scores.index(player_max_score)
 
-            print(f"\nPlayer {idx + 1} won the game with {player_max_score} points.")      
+            print(f"\n{names[idx]} won the game with {player_max_score} points.")      
 
 
 # Driver Code
